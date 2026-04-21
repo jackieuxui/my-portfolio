@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackie Carlos - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 2rem;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .experience-item h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-item .position {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item ul {
+            list-style-position: inside;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Section */
+        .project-item {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+
+        .project-item h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-item .tech-stack {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-item ul {
+            list-style-position: inside;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .project-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Education Section */
+        .education-item {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #764ba2;
+            border-radius: 5px;
+        }
+
+        .education-item h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item p {
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Skills by Category */
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category p {
+            color: #555;
+            line-height: 1.8;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+
+        .contact-item strong {
+            color: #2c3e50;
+        }
+
+        .contact-item a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Jackie Carlos</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome, I'm Jackie Carlos</h1>
+        <p>Data Analyst | Quantitative Analyst | Python</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            I'm a data-focused problem solver with a background in user-centered thinking, now transitioning into data and quantitative analysis. 
+            I work with Python and statistical methods to analyze datasets, build models, and extract insights that inform decision-making. 
+            My interests include machine learning and applying data-driven approaches to real-world problems, including financial and behavioral data. 
+            I'm committed to continuous learning, building practical projects, and developing systems that turn data into actionable insights.
+        </p>        
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+
+        <div class="project-item">
+            <h3>Megaline Prepaid Plan Revenue Analysis</h3>
+            <div class="tech-stack">Python, pandas, NumPy, SciPy, matplotlib</div>
+            <ul>
+                <li>Analyzed usage and revenue data for 500 telecom customers across two prepaid plans.</li>
+                <li>Cleaned and merged multiple datasets covering calls, messages, internet usage, and customer profiles.</li>
+                <li>Calculated monthly customer revenue based on plan limits, overage charges, and subscription fees.</li>
+                <li>Visualized usage distributions and compared customer behavior across plans.</li>
+                <li>Applied statistical hypothesis testing to evaluate whether revenue differed significantly between plans and regions.</li>
+                <li>Delivered insights to support advertising budget decisions based on revenue performance.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <h2>Work Experience</h2>
+
+        <div class="experience-item">
+            <h3>UX/UI Designer - Contract</h3>
+            <div class="position">PeaceKeepers, Remote</div>
+            <div class="date">August 2023 - Present</div>
+            <ul>
+                <li>Guide a team of two designers to successfully revamp a legal web3 platform for dispute mediation
+                    that utilizes blockchain technology, achieving a top three design among mid-fidelity design teams.
+                </li>
+                <li>Compose a comprehensive discovery slide deck encompassing heuristic evaluation, secondary research,
+                    and competitive analysis, gaining deep insight into product challenges and effectively informing
+                    design decisions.</li>
+                <li>Iterate on three-user flow designs, resulting in high-fidelity wireframes for the dashboard, chat
+                    interface, and mediation page, leveraging existing design systems for an intuitive user experience
+                    within a sprint timeframe.</li>
+                <li>Coordinate with stakeholders and team to present design decisions, integrating feedback to enhance
+                    designs and analysis that align with the company's goal and values.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>UX/UI Designer - Contract</h3>
+            <div class="position">Wood Computer, Remote</div>
+            <div class="date">April 2023 - August 2023</div>
+            <ul>
+                <li>Develop high-fidelity B2C web home screen mockups for an e-commerce company among five designers,
+                    ensuring a visually appealing and user-friendly interface that promotes seamless navigation and
+                    efficient product discovery.</li>
+                <li>Curate seamless typography, color, and imagery integration in the blog screens, maintaining
+                    consistency and visual design harmony throughout the design.</li>
+                <li>Maintain consistent visual language throughout the mockups and developer hand-off, utilizing
+                    transparent and concise language to communicate design decisions effectively to the client.</li>
+                <li>Execute web design principles that align with accessibility standards and guidelines, such as WCAG
+                    (Web Content Accessibility Guidelines), to ensure an inclusive user experience for individuals with
+                    disabilities.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>UX/UI Designer - Contract</h3>
+            <div class="position">Stoxup, LLC, Remote</div>
+            <div class="date">Jan 2023 - March 2023</div>
+            <ul>
+                <li>Oversee a team of five designers in developing mobile app mockups for a B2C fintech company,
+                    providing a user-centered design for the home screen and onboarding pages to reach a broader
+                    audience.</li>
+                <li>Refine high-fidelity wireframes from web applications to the mobile platform, focusing on
+                    maintaining consistent branding using user stories and style guides.</li>
+                <li>Deliver project scope expectations by prioritizing communication between the client, an agile team,
+                    and project managers while exhibiting critical thinking, time management, and attention to detail to
+                    meet deadlines.</li>
+                <li>Spearhead interaction design, unmoderated user testing, and high-fidelity screens to enhance user
+                    interaction and experience that maintains current industry best practices, exhibiting flexibility in
+                    a fast-paced environment.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>UX/UI Designer - Contract</h3>
+            <div class="position">Orchid B, Remote</div>
+            <div class="date">August 2022 - Dec 2022</div>
+            <ul>
+                <li>Optimize an onboarding process for small businesses and freelancers in a B2B company, collaborating
+                    with four designers to deliver researched and user-focused mockup redesigns that handle office
+                    administrative websites.</li>
+                <li>Perform qualitative research methods using unmoderated user testing with surveys and questionnaires
+                    to ensure quality prototype adjustments are within the client's vision and goals.</li>
+                <li>Synthesize 15 data-driven research profiles that provide feedback and validate design decisions
+                    exhibiting empathy, critical thinking, and organization skills to inform a result grounded in design
+                    principles.</li>
+                <li>Maintain contemporary design standards by leveraging design component libraries and systems to align
+                    with project objectives, adhering to industry best practices, and ensuring accessibility standards
+                    for optimal end-product quality.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Courier Driver - Independent Contractor</h3>
+            <div class="position">Uber, Remote</div>
+            <div class="date">July 2018 - July 2023</div>
+            <ul>
+                <li>Employ user-centered communication to interact with customers, providing clear updates on order
+                    status, estimated delivery times, and potential issues, fostering transparency and enhancing the
+                    overall user experience.</li>
+                <li>Gather user feedback and insights during delivery interactions, leveraging UX research methods to
+                    identify areas for improvement and relay valuable insights to the UberEats platform, contributing to
+                    iterative enhancements.</li>
+                <li>Implement user-friendly packaging techniques to ensure food items are securely and attractively
+                    presented upon delivery, considering UX factors such as temperature control, spill prevention, and
+                    ease of handling.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Independent Entrepreneur</h3>
+            <div class="position">Self-employed, National City, CA</div>
+            <div class="date">Jan 2022 - June 2022</div>
+            <ul>
+                <li>Deploy five Helium Hotspots, leveraging UX-driven strategies that enable seamless internet-of-things
+                    (IoT) connectivity, resulting in the acquisition of Helium tokens as part of the incentivized
+                    ecosystem.</li>
+                <li>Apply an entrepreneurial mindset to navigate challenges and seize opportunities, fostering a culture
+                    of innovation, adaptability, and customer-centricity within the organization.</li>
+                <li>Plan and execute business initiatives, employing UX methodologies to align product/service offerings
+                    with user needs and market demands, increasing customer satisfaction and business growth.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Co-Vice President External - Full-time</h3>
+            <div class="position">Engineers for a Sustainable World - UC Irvine, Irvine, CA</div>
+            <div class="date">April 2020 - June 2020</div>
+            <ul>
+                <li>Facilitate a cross-functional meeting with engineering organizations to host two distinguished
+                    alums, curating a diverse cohort of 7-10 engineering students to conduct a student-focused session
+                    on Navigating the Job Market.</li>
+                <li>Ideate innovative event concepts with student board members that prioritized the students'
+                    well-being and safety, fostering engaging interactions and student-centered experiences in a
+                    challenging and dynamic environment.</li>
+                <li>Enact user research techniques to understand student preferences and interests, resulting in the
+                    development of compelling event ideas that promote meaningful connections and collaboration within
+                    the student community.</li>
+                <li>Create event notifications on social media for upcoming events, applying user-centered messaging
+                    strategies to effectively communicate event details, including date, time, location, and highlights,
+                    ensuring maximum engagement and attendance.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Transportation Security Officer - Part-time</h3>
+            <div class="position">DHS-TSA, San Diego, CA</div>
+            <div class="date">July 2013 - Aug 2017</div>
+            <ul>
+                <li>Communicate security procedures and requirements clearly to passengers, minimizing confusion and
+                    providing a positive experience while maintaining high security standards.</li>
+                <li>Collaborate with cross-functional teams to identify areas for security enhancements within the
+                    security screening process, contributing valuable insights and participating in implementing
+                    officer-centered improvements.</li>
+                <li>Track passenger traffic by documenting precise and actionable data on the number of passengers
+                    passing through the checkpoint, contributing to data-driven decision-making and optimizing passenger
+                    flow and experience.</li>
+                <li>Coach newly hired employees by providing constructive feedback, detailed observation, and actionable
+                    recommendations, focusing on optimizing passenger and officer-centric approaches and promoting
+                    efficient time management.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <h2>Education</h2>
+
+        <div class="education-item">
+            <h3>Design Masterclass</h3>
+            <p><strong>Courses:</strong> Advanced Figma, Advance Prototyping, Agile for UX/UI Designers, Models and
+                Theories in HCI</p>
+        </div>
+
+        <div class="education-item">
+            <h3>UX/UI Foundations</h3>
+            <p><strong>School:</strong> Avocademy</p>
+        </div>
+
+        <div class="education-item">
+            <h3>Bachelor of Science in Chemistry</h3>
+            <p><strong>School:</strong> University of California, Irvine</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+
+        <div class="skill-category">
+            <h3>Research</h3>
+            <p>User interview, usability testing, user research, user experience design (UED), persona development,
+                competitive analysis, heuristic evaluations, information architecture, qualitative research,
+                quantitative research, and empathy mapping.</p>
+        </div>
+
+        <div class="skill-category">
+            <h3>Design</h3>
+            <p>Ideation, prototyping, wireframing, mockups, global style guides, auto layout, style guides, color
+                theory, high-fidelity screens, sketching, motion design, HCI, Agile, advanced Lean, SCRUM Framework, UX
+                animations, HTML, and CSS.</p>
+        </div>
+
+        <div class="skill-category">
+            <h3>Tools</h3>
+            <p>Figma, Zoom, Miro, Usertesting, Maze, Microsoft Office, Kanban, Notion, Jira, and GitHub.</p>
+        </div>
+
+        <div class="skill-category">
+            <h3>Soft Skills</h3>
+            <p>Empathetic, collaborative, curious, creative, excellent communication, team player, analytical,
+                problem-solving, critical thinking, flexible, learner mindset, receptive to feedback, highly motivated,
+                adaptable, initiative, patience, coordination, time management, open-mindedness, user-focused,
+                attention-to-detail, active listening, awareness, integrity, and humor.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>Email:</strong>
+                <a href="mailto:jackie.m.carlos@gmail.com">jackie.m.carlos@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+                <strong>Phone:</strong>
+                <a href="tel:6197577723">619-757-7723</a>
+            </div>
+
+            <div class="contact-item">
+                <strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/jackiemlai/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackiemlai</a>
+            </div>
+
+            <div class="contact-item">
+                <strong>GitHub Website:</strong>
+                <a href="https://jackieuxui.github.io/my-portfolio/" target="_blank" rel="noopener noreferrer">jackieuxui.github.io/my-portfolio</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
